@@ -13,21 +13,21 @@ pipeline {
         stage('Validation Docker Compose') {
             steps {
                 echo 'Verification du fichier Docker Compose'
-                sh 'docker compose config'
+                bat 'docker compose config'
             }
         }
 
         stage('Build Docker Images') {
             steps {
                 echo 'Construction des images Docker'
-                sh 'docker compose build'
+                bat 'docker compose build'
             }
         }
 
         stage('Run Application') {
             steps {
                 echo 'Demarrage de l application'
-                sh 'docker compose up -d'
+                bat 'docker compose up -d'
             }
         }
     }
